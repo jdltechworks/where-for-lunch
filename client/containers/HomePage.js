@@ -47,11 +47,6 @@ const mapStateToProps = state => ({
   place: state.place,
 });
 
-/**
- * no need bindActionCreators for this
- * connect binds the dispatch right of the bat
- * @type {Object}
- */
 const mapDispatchToProps = {
   fetchPlaces: placeActions.fetchPlaces,
   setCategory: conditionActions.setCategory,
