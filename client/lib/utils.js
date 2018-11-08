@@ -3,3 +3,7 @@ export function getRandom(list) {
   const rand = list[Math.floor(Math.random() * list.length)];
   return rand;
 }
+
+export const hasLatLong = ({ latitude, longitude }) => {
+  return typeof latitude === 'undefined' && typeof longitude === 'undefined';
+};

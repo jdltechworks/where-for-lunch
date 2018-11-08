@@ -7,7 +7,7 @@ const component = shallow(<Button />);
 
 describe('Button', () => {
 
-  it('should be disabled by default', () => {
+  it('should be false by default', () => {
 
     expect(component.props().disabled).toBe(false)
 
@@ -20,5 +20,5 @@ describe('Button', () => {
     expect(disabled.props().disabled).toBe(true)
 
   });
-  
+
 });

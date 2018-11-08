@@ -2,7 +2,14 @@ import { handleActions } from 'redux-actions';
 import * as actionTypes from 'actions/placeActionTypes';
 
 const initialState = {
-  cuisines: [],
+  cuisines: [
+    'restaurant',
+    'americantrad',
+    'japanese',
+    'korean',
+    'filipino',
+    'mexican',
+  ],
 };
 const placeReducer = handleActions(
   {

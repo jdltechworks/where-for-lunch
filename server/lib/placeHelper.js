@@ -1,10 +1,14 @@
 export function toSearchPlacesParams(params) {
+
+  const categories = params.categories.join(',');
+
   const result = {
     term: 'food',
     latitude: params.latitude,
     longitude: params.longitude,
     radius: params.radius,
     limit: 50,
+    categories,
     open_now: true,
   };
   return result;
