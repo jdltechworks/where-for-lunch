@@ -3,6 +3,7 @@ import * as actionTypes from 'actions/conditionActionTypes';
 
 const initialState = {
   radius: 500,
+  categories: [],
 };
 const conditionReducer = handleActions(
   {

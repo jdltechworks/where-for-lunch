@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Button from 'components/Button';
 import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
 import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
+import { hasLatLong } from 'lib/utils';
 
 class HomePage extends Component {
   handleOnClick = () => {
@@ -17,13 +17,9 @@ class HomePage extends Component {
     this.props.setRadius(value);
   }
 
-  hasLatLong = ({ latitude, longitude }) => {
-    return typeof latitude === 'undefined' && typeof longitude === 'undefined';
-  }
-
   render() {
     const { condition, place } = this.props;
-    const searchDisabled = this.hasLatLong(condition);
+    const searchDisabled = hasLatLong(condition);
 
     return (
       <div className="homePageWrapper">
@@ -42,11 +38,15 @@ const mapStateToProps = state => ({
   place: state.place,
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    fetchPlaces: placeActions.fetchPlaces,
-    setRadius: conditionActions.setRadius,
-  }, dispatch);
+/**
+ * no need bindActionCreators for this
+ * connect binds the dispatch right of the bat
+ * @type {Object}
+ */
+const mapDispatchToProps = {
+  fetchPlaces: placeActions.fetchPlaces,
+  setRadius: conditionActions.setRadius,
+};
 
 HomePage.propTypes = {
   condition: PropTypes.object,
