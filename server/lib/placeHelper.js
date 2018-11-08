@@ -1,7 +1,7 @@
 export function toSearchPlacesParams(params) {
 
   const categories = params.categories.join(',');
-
+  
   const result = {
     term: 'food',
     latitude: params.latitude,

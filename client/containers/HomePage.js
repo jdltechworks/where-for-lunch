@@ -6,6 +6,7 @@ import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
 import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
+import Checkbox from 'components/Checkbox';
 import { hasLatLong } from 'lib/utils';
 
 class HomePage extends Component {
@@ -18,14 +19,22 @@ class HomePage extends Component {
   }
 
   render() {
-    const { condition, place } = this.props;
+    const { condition, place, setCategory } = this.props;
     const searchDisabled = hasLatLong(condition);
 
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Condition condition={condition} action={this.handleOnConditionChange}/>
+          <Condition condition={condition} action={this.handleOnConditionChange}>
+            {(categories) => {
+              return place.cuisines.map((cuisine, key) => (
+                <Checkbox key={key} handleChange={(e) => {
+                  setCategory(e.target.name);
+                }} categories={categories} {...cuisine} />
+              ));
+            }}
+          </Condition>
           <Button disabled={searchDisabled} onClick={this.handleOnClick} theme="homepageClick" />
         </div>
       </div>
@@ -45,6 +54,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = {
   fetchPlaces: placeActions.fetchPlaces,
+  setCategory: conditionActions.setCategory,
   setRadius: conditionActions.setRadius,
 };
 
@@ -53,6 +63,7 @@ HomePage.propTypes = {
   place: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
+  setCategory: PropTypes.func,
 };
 export default connect(
   mapStateToProps,

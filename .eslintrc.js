@@ -418,7 +418,7 @@ module.exports = {
   ],
   "linebreak-style": [
    "error",
-   "unix"
+   "windows"
   ],
   "lines-around-comment": "off",
   "lines-around-directive": [
@@ -937,8 +937,7 @@ module.exports = {
    2,
    {
     "forbid": [
-     "any",
-     "array"
+     "any"
     ]
    }
   ],
