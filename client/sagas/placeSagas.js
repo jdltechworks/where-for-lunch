@@ -1,10 +1,11 @@
 import { call, select, takeEvery, takeLatest, put } from 'redux-saga/effects';
-import { getPlaceIds } from 'services/placeApi';
+import { getPlaceIds, getPlaceDetails } from 'services/placeApi';
 import { getRandom } from 'lib/utils';
 import placeActions from 'actions/placeActions';
 import { selectCondition } from 'sagas/selectors';
 import {
   FETCH_PLACES,
+  PLACE_BY_ID,
 } from 'actions/placeActionTypes';
 
 import {
@@ -32,9 +33,19 @@ function* getPlacesWithCategories() {
   }
 }
 
+function* getPlaceById({ payload }) {
+  try {
+    const place = yield call(getPlaceDetails, payload);
+    yield put(placeActions.setPlace(place));
+  } catch (e) {
+    console.error('Error', e);
+  }
+}
+
 function* placeSagas() {
   yield takeEvery(FETCH_PLACES, fetchPlace);
   yield takeLatest(SET_CATEGORY, getPlacesWithCategories);
+  yield takeLatest(PLACE_BY_ID, getPlaceById);
 }
 
 export default placeSagas;
