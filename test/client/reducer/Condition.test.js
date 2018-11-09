@@ -1,6 +1,6 @@
 import conditionReducer from 'client/reducers/conditionReducer';
 import * as types from 'client/actions/conditionActionTypes';
-
+import actions from 'client/actions/conditionActions';
 let state = {
   radius: 500,
   categories: [],
@@ -14,10 +14,10 @@ describe('conditionReducer', () => {
   });
 
   it('should add a category', () => {
-    let withCategoryPayload = conditionReducer(state, {
-        type: types.SET_CATEGORY,
-        payload: 'restaurant',
-    });
+    const withCategoryPayload = conditionReducer(
+      state,
+      actions.setCategory('restaurant')
+    );
 
     expect(withCategoryPayload).toEqual({
       radius: 500,
@@ -26,14 +26,11 @@ describe('conditionReducer', () => {
   });
 
   it('should remove a category if a category is already in the array', () => {
-    let hasCategoryState = {
+    const hasCategoryState = {
       radius: 500,
       categories: ['restaurant']
     };
-    const withDuplicate = conditionReducer(hasCategoryState, {
-      type: types.SET_CATEGORY,
-      payload: 'restaurant'
-    });
+    const withDuplicate = conditionReducer(hasCategoryState, actions.setCategory('restaurant'));
 
     expect(withDuplicate).toEqual({
       radius: 500,
