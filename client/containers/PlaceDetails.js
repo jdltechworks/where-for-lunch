@@ -5,19 +5,14 @@ import PropTypes from 'prop-types';
 
 
 
+
+
+
+
+
+
 import Map from 'components/Map';
-
-
-
-
-import Details from 'components/Details';
-
-
-
-
-
 import Image from 'components/Image';
-
 import Place from 'components/Place/Place';
 
 const { placeById } = placeActions;
@@ -39,7 +34,11 @@ class PlaceDetails extends Component {
       return (
         <Fragment>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> Adding google maps feature plus test
 =======
 <<<<<<< HEAD
 >>>>>>> Adding google maps feature plus test
@@ -50,6 +49,12 @@ class PlaceDetails extends Component {
           <Image src={details.img} />
 <<<<<<< HEAD
 
+=======
+=======
+          <Map coordinates={details.coordinates} />
+          <Details info={details} />
+>>>>>>> Adding google maps feature plus test
+<<<<<<< HEAD
 =======
 =======
           <Map coordinates={details.coordinates} />
