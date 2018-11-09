@@ -3,7 +3,18 @@ import React, { Component, Fragment } from 'react';
 import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
+
+
 import Map from 'components/Map';
+
+
+
+
+import Details from 'components/Details';
+
+
+
+
 
 import Image from 'components/Image';
 
@@ -27,13 +38,24 @@ class PlaceDetails extends Component {
     if (details) {
       return (
         <Fragment>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> Adding google maps feature plus test
           <Place place={details} />
 
           <Map coordinates={details.coordinates} />
 
           <Image src={details.img} />
+<<<<<<< HEAD
 
+=======
+=======
+          <Map coordinates={details.coordinates} />
+          <Details info={details} />
+>>>>>>> Adding google maps feature plus test
+>>>>>>> Adding google maps feature plus test
         </Fragment>
       );
     }
