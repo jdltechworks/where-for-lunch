@@ -21,7 +21,6 @@ class HomePage extends Component {
   render() {
     const { condition, place, setCategory } = this.props;
     const searchDisabled = hasLatLong(condition);
-
     return (
       <div className="homePageWrapper">
         <Place place={place} />

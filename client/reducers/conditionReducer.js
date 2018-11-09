@@ -3,7 +3,7 @@ import * as actionTypes from 'actions/conditionActionTypes';
 
 const initialState = {
   radius: 500,
-  categories: [],
+  categories: ['restaurant'],
 };
 const conditionReducer = handleActions(
   {
