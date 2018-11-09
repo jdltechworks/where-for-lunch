@@ -14,7 +14,7 @@
     box-shadow: $button-shadow;
   }
   &[disabled] {
-    opacity: .5;
+    background: #f7f7f7;
     cursor: not-allowed;
   }
 }
