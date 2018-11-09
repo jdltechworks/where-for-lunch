@@ -1,11 +1,7 @@
 import { Router } from 'express';
 
-<<<<<<< HEAD
-import { searchPlaces } from 'services/yelp';
-
-=======
 import { searchPlaces, fetchPlaceById } from '../services/yelp';
->>>>>>> Adding place details page plus compoenent test
+
 import {
   toSearchPlacesParams,
   fromSearchPlacesParams,
