@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Place from 'components/Place/Place';
 import Image from 'components/Image';
+import Map from 'components/Map';
 
 const { placeById } = placeActions;
 
@@ -25,6 +26,7 @@ class PlaceDetails extends Component {
       return (
         <Fragment>
           <Place place={details} />
+          <Map coordinates={details.coor}
           <Image src={details.img} />
         </Fragment>
       );
