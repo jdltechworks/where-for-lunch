@@ -14,7 +14,7 @@
     box-shadow: $button-shadow;
   }
   &[disabled] {
-    background: #f7f7f7;
+    background: $grey;
     cursor: not-allowed;
   }
 }
