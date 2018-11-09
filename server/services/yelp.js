@@ -15,3 +15,13 @@ export async function searchPlaces(params) {
     console.log('search failed!', e.response);
   }
 }
+
+
+export async function fetchPlaceById(id) {
+  try {
+    const { data } = await authedAxios.get(`/businesses/${id}`);
+    return data;
+  } catch (e) {
+    console.log('error', e.response);
+  }
+}
