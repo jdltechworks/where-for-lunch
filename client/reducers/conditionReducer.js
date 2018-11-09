@@ -16,22 +16,24 @@ const conditionReducer = handleActions(
     },
     [actionTypes.SET_CATEGORY](state, { payload }) {
       const { categories } = state;
-      const index = categories.indexOf(payload, 0);
 
-      if (index !== -1) {
+      const toBeRemoved = categories.indexOf(payload, 0) !== -1;
+
+      if (toBeRemoved) {
         return {
           ...state,
           categories: [
-            ...categories.reduce((acc, category, i) => {
+            ...categories.reduce((result, category, i) => {
               if (category !== payload) {
-                acc[i] = category;
+                result[i] = category;
               }
-              return acc;
+              return result || [];
             }, []),
           ],
         };
       }
-      return { ...state, categories: [...state.categories, payload] };
+
+      return { ...state, categories: [...categories, payload] };
     },
   },
   initialState,

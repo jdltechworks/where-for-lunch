@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Checkbox = ({ categories, display, value, handleChange }) => (
+const Checkbox = ({ selected, label, name, handleChange }) => (
   <div className="checkbox">
-    <label htmlFor={value}>
+    <label htmlFor={name}>
       <input
         type="checkbox"
-        id={value}
-        name={value}
+        id={name}
+        name={name}
         onChange={handleChange}
-        checked={categories.includes(value)}/>
-      {display}
+        checked={selected.includes(name)}/>
+      {label}
     </label>
   </div>
 );
 
 Checkbox.propTypes = {
-  categories: PropTypes.array,
-  display: PropTypes.string,
+  selected: PropTypes.array,
+  label: PropTypes.string,
   handleChange: PropTypes.func,
-  value: PropTypes.string,
+  name: PropTypes.string,
 };
 
 

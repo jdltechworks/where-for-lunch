@@ -12,6 +12,6 @@ export async function searchPlaces(params) {
     const { data } = await authedAxios.get('/businesses/search', { params });
     return data.businesses;
   } catch (e) {
-    console.log('search failed!', e);
+    console.log('search failed!', e.response);
   }
 }

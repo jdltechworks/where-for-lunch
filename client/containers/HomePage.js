@@ -31,7 +31,7 @@ class HomePage extends Component {
               return place.cuisines.map((cuisine, key) => (
                 <Checkbox key={key} handleChange={(e) => {
                   setCategory(e.target.name);
-                }} categories={categories} {...cuisine} />
+                }} selected={categories} {...cuisine} />
               ));
             }}
           </Condition>

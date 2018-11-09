@@ -4,24 +4,24 @@ import * as actionTypes from 'actions/placeActionTypes';
 const initialState = {
   cuisines: [
     {
-      display: 'Barbeque',
-      value: 'bbq',
+      label: 'Barbeque',
+      name: 'bbq',
     },
     {
-      display: 'Japanese',
-      value: 'japanese',
+      label: 'Japanese',
+      name: 'japanese',
     },
     {
-      display: 'Korean',
-      value: 'korean',
+      label: 'Korean',
+      name: 'korean',
     },
     {
-      display: 'Filipino',
-      value: 'filipino',
+      label: 'Filipino',
+      name: 'filipino',
     },
     {
-      display: 'Burgers',
-      value: 'burgers',
+      label: 'Burgers',
+      name: 'burgers',
     },
   ],
 };
@@ -29,10 +29,6 @@ const placeReducer = handleActions(
   {
     [actionTypes.SET_DETAILS](state, action) {
       return { ...state, ...action.payload };
-    },
-    [actionTypes.FETCH_CUISINES](state, action) {
-      console.log(action);
-      return { ...state };
     },
   },
   initialState,
