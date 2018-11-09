@@ -6,6 +6,7 @@ import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
 import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
+import Checkbox from 'components/Checkbox';
 import { hasLatLong } from 'lib/utils';
 
 class HomePage extends Component {
