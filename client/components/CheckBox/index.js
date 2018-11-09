@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Checkbox = ({ selected, label, name, handleChange }) => (
+const Checkbox = ({ checked, label, name, handleChange }) => (
   <div className="checkbox">
     <label htmlFor={name}>
       <input
@@ -9,14 +9,14 @@ const Checkbox = ({ selected, label, name, handleChange }) => (
         id={name}
         name={name}
         onChange={handleChange}
-        checked={selected.includes(name)}/>
+        checked={checked}/>
       {label}
     </label>
   </div>
 );
 
 Checkbox.propTypes = {
-  selected: PropTypes.array,
+  checked: PropTypes.bool,
   label: PropTypes.string,
   handleChange: PropTypes.func,
   name: PropTypes.string,
