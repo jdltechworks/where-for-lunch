@@ -934,8 +934,7 @@ module.exports = {
    2,
    {
     "forbid": [
-     "any",
-     "array"
+     "any"
     ]
    }
   ],

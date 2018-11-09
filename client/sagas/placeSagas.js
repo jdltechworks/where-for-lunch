@@ -1,15 +1,15 @@
-import { select, call, takeEvery, takeLatest, put } from 'redux-saga/effects';
+import { call, select, takeEvery, takeLatest, put } from 'redux-saga/effects';
 import { getPlaceIds } from 'services/placeApi';
 import { getRandom } from 'lib/utils';
 import placeActions from 'actions/placeActions';
-import { selectCuisines } from 'sagas/selectors';
+import { selectCondition } from 'sagas/selectors';
 import {
   FETCH_PLACES,
   FETCH_CUISINES,
 } from 'actions/placeActionTypes';
 
 import {
-  SET_LAT_LNG,
+  SET_CATEGORY,
 } from 'actions/conditionActionTypes';
 
 function* fetchPlace(action) {
@@ -22,16 +22,20 @@ function* fetchPlace(action) {
   }
 }
 
-function* getCategoriesByAlias() {
-  const cuisines = yield select(selectCuisines);
-  console.log(cuisines);
-  yield put({ type: FETCH_CUISINES, data: 'dummy_data' });
+function* getPlacesWithCategories() {
+  try {
+    const condition = yield select(selectCondition);
+    const places = yield call(getPlaceIds, condition);
+    const randomPlace = getRandom(places);
+    yield put(placeActions.setDetails(randomPlace));
+  } catch (e) {
+    console.log('error! ', e);
+  }
 }
-
 
 function* placeSagas() {
   yield takeEvery(FETCH_PLACES, fetchPlace);
-  yield takeLatest(SET_LAT_LNG, getCategoriesByAlias);
+  yield takeLatest(SET_CATEGORY, getPlacesWithCategories);
 }
 
 export default placeSagas;

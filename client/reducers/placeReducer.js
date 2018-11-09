@@ -3,12 +3,26 @@ import * as actionTypes from 'actions/placeActionTypes';
 
 const initialState = {
   cuisines: [
-    'restaurant',
-    'americantrad',
-    'japanese',
-    'korean',
-    'filipino',
-    'mexican',
+    {
+      display: 'Barbeque',
+      value: 'bbq',
+    },
+    {
+      display: 'Japanese',
+      value: 'japanese',
+    },
+    {
+      display: 'Korean',
+      value: 'korean',
+    },
+    {
+      display: 'Filipino',
+      value: 'filipino',
+    },
+    {
+      display: 'Burgers',
+      value: 'burgers',
+    },
   ],
 };
 const placeReducer = handleActions(

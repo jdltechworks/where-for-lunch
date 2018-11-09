@@ -7,6 +7,7 @@ export default class Condition extends PureComponent {
   static propTypes = {
     condition: PropTypes.object,
     action: PropTypes.func,
+    children: PropTypes.func,
   };
 
   handleOnBlurAction = (e) => {
@@ -14,13 +15,17 @@ export default class Condition extends PureComponent {
   }
 
   render() {
-    const { condition: { radius } } = this.props;
+    const { handleOnBlurAction } = this;
+    const { children, condition: { radius, categories } } = this.props;
     return (
-      <div className={styles.root}>
-        <span>radius:</span>
-        <Input defaultValue={radius} onBlurAction={this.handleOnBlurAction}></Input>
-        <span>meters</span>
-      </div>
+      <React.Fragment>
+        <div className={styles.root}>
+          <span>radius:</span>
+          <Input defaultValue={radius} onBlurAction={handleOnBlurAction}></Input>
+          <span>meters</span>
+        </div>
+        {children(categories)}
+      </React.Fragment>
     );
   }
 }

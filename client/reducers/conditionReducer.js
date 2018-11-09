@@ -14,6 +14,25 @@ const conditionReducer = handleActions(
       const { latitude, longitude } = action.payload;
       return { ...state, latitude, longitude };
     },
+    [actionTypes.SET_CATEGORY](state, { payload }) {
+      const { categories } = state;
+      const index = categories.indexOf(payload, 0);
+
+      if (index !== -1) {
+        return {
+          ...state,
+          categories: [
+            ...categories.reduce((acc, category, i) => {
+              if (category !== payload) {
+                acc[i] = category;
+              }
+              return acc;
+            }, []),
+          ],
+        };
+      }
+      return { ...state, categories: [...state.categories, payload] };
+    },
   },
   initialState,
 );
