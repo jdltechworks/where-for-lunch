@@ -4,7 +4,9 @@ import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
 import Map from 'components/Map';
+
 import Image from 'components/Image';
+
 import Place from 'components/Place/Place';
 
 const { placeById } = placeActions;
