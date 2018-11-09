@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import placeActions from 'actions/placeActions';
@@ -36,3 +37,18 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetails);
+=======
+import React, { Component } from 'react';
+
+class PlaceDetails extends Component {
+  render() {
+    const { props } = this;
+    console.log(props);
+    return (
+      <div></div>
+    );
+  }
+}
+
+export default PlaceDetails;
+>>>>>>> Adding partial implementation for task-3
