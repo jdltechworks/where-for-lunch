@@ -3,9 +3,9 @@ import React, { Component, Fragment } from 'react';
 import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
-import Place from 'components/Place/Place';
-import Image from 'components/Image';
 import Map from 'components/Map';
+import Image from 'components/Image';
+import Place from 'components/Place/Place';
 
 const { placeById } = placeActions;
 
