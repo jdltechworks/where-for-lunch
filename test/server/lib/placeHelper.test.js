@@ -6,7 +6,7 @@ describe('placeHelper', () => {
       categories: ['restaurant', 'filipino']
     };
 
-    const categories = shapeCategories(params);
+    const categories = shapeCategories(['restaurant'], params);
 
     expect(categories).toEqual('restaurant,filipino');
   });

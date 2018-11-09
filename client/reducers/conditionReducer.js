@@ -23,12 +23,9 @@ const conditionReducer = handleActions(
         return {
           ...state,
           categories: [
-            ...categories.reduce((result, category, i) => {
-              if (category !== payload) {
-                result[i] = category;
-              }
-              return result || [];
-            }, []),
+            ...categories.filter((result, category, i) => {
+              return category === payload;
+            }),
           ],
         };
       }
