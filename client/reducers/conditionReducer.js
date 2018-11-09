@@ -23,7 +23,7 @@ const conditionReducer = handleActions(
         return {
           ...state,
           categories: [
-            ...categories.filter((result, category, i) => {
+            ...categories.filter((result, category) => {
               return category === payload;
             }),
           ],
