@@ -1,4 +1,4 @@
-const shapeCategories = (params) => {
+export const shapeCategories = (params) => {
   let categories = ['restaurant'];
 
   if (params.hasOwnProperty('categories')) {
