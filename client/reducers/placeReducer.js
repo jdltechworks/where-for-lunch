@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import * as actionTypes from 'actions/placeActionTypes';
+import * as types from 'actions/placeActionTypes';
 
 const initialState = {
   cuisines: [
@@ -27,8 +27,18 @@ const initialState = {
 };
 const placeReducer = handleActions(
   {
-    [actionTypes.SET_DETAILS](state, action) {
+    /**
+     * I'm a hesitant to use this not adding a details
+     * property in the state creating one at setplace action type
+     */
+    [types.SET_DETAILS](state, action) {
       return { ...state, ...action.payload };
+    },
+    [types.SET_PLACE](state, { payload }) {
+      return {
+        ...state,
+        details: { ...payload },
+      };
     },
   },
   initialState,

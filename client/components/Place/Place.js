@@ -28,6 +28,7 @@ const Place = ({ place }) => {
 
 Place.propTypes = {
   place: PropTypes.object,
+  router: PropTypes.object,
 };
 
 export default Place;
