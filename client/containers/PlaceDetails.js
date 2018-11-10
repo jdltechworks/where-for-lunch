@@ -3,17 +3,9 @@ import React, { Component, Fragment } from 'react';
 import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Place from 'components/Place/Place';
 import Image from 'components/Image';
 import Map from 'components/Map';
-=======
-=======
->>>>>>> Adding google maps feature plus test
-import Map from 'components/Map';
-import Details from 'components/Details';
->>>>>>> Adding google maps feature plus test
 
 const { placeById } = placeActions;
 
@@ -33,19 +25,9 @@ class PlaceDetails extends Component {
     if (details) {
       return (
         <Fragment>
-<<<<<<< HEAD
-<<<<<<< HEAD
           <Place place={details} />
-          <Map coordinates={details.coor}
+          <Map coordinates={details.coordinates} />
           <Image src={details.img} />
-=======
-          <Map coordinates={details.coordinates} />
-          <Details info={details} />
->>>>>>> Adding google maps feature plus test
-=======
-          <Map coordinates={details.coordinates} />
-          <Details info={details} />
->>>>>>> Adding google maps feature plus test
         </Fragment>
       );
     }
