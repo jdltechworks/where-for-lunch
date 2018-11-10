@@ -7,3 +7,5 @@ export function getRandom(list) {
 export const hasLatLong = ({ latitude, longitude }) => {
   return typeof latitude === 'undefined' && typeof longitude === 'undefined';
 };
+
+export const categoriesToString = categories => categories.map(({ alias }) => alias).join(',');

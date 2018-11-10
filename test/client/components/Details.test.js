@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Details from 'client/components/Details';
+import Details, { categoriesToString } from 'client/components/Details';
 
 const component = mount(
   <Details info={{
@@ -21,7 +21,7 @@ describe('Details', () => {
   it('should have an info props', () => {
     expect(component.props().info).toBeDefined;
   });
-  it('should have a rendered children', () => {
+  it('should get the correct info props', () => {
     const expected = {
       categories: [{
         alias: 'seveneleven',
