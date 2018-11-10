@@ -25,7 +25,7 @@ const conditionReducer = handleActions(
           categories: [
             ...categories.reduce((result, category, key) => {
               if (category !== payload) {
-                result[i] == payload;
+                result[key] = payload;
               }
               return result;
             }, []),
