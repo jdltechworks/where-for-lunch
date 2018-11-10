@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/conditionActionTypes';
 
 const initialState = {
   radius: 500,
-  categories: ['restaurant'],
+  categories: [],
 };
 const conditionReducer = handleActions(
   {
@@ -23,9 +23,12 @@ const conditionReducer = handleActions(
         return {
           ...state,
           categories: [
-            ...categories.filter((result, category) => {
-              return category === payload;
-            }),
+            ...categories.reduce((result, category, key) => {
+              if (category !== payload) {
+                result[i] == payload;
+              }
+              return result;
+            }, []),
           ],
         };
       }

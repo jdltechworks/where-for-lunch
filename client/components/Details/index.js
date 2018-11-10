@@ -1,23 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Details.css';
+import { categoriesToString } from '../../lib/utils';
 
-/**
- * Category tag shaper
- * can't test if this is added in the lib/utils
- * @param  {array} categories array of categories
- * @return {string} exploded tags
- */
-export const categoriesToString = (categories) => {
-  return categories.reduce((acc, value, key) => {
-    acc[key] = value.alias;
-    return acc;
-  }, []).join(',');
-};
+import styles from './Details.css';
 
 const Details = ({ info }) => (
   <div className={styles.details_container}>
     <h2>{info.name}</h2>
+    <div className={styles.details_footer}>
+      <p><strong>Address:</strong>  {info.location.display_address.join(' ')}</p>
+    </div>
     <p><strong>Phone: </strong> {info.phone}</p>
     <p><strong>Categories:</strong>  {categoriesToString(info.categories)}</p>
     <div className={styles.rating}>
@@ -28,9 +20,6 @@ const Details = ({ info }) => (
       </div>
     </div>
     <img className={styles.details_image} src={info.image_url} />
-    <div className={styles.details_footer}>
-      <p><strong>Address:</strong>  {info.location.display_address.join(' ')}</p>
-    </div>
   </div>
 );
 

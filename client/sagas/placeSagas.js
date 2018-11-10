@@ -1,5 +1,5 @@
-import { call, takeEvery, put } from 'redux-saga/effects';
-import { getPlaceIds, getPlaceDetailsd } from 'services/placeApi';
+import { call, takeEvery, takeLatest, put } from 'redux-saga/effects';
+import { getPlaceIds, getPlaceDetails } from 'services/placeApi';
 import { getRandom } from 'lib/utils';
 import placeActions from 'actions/placeActions';
 import {
