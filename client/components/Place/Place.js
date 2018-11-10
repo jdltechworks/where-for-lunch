@@ -6,7 +6,7 @@ import styles from './Place.css';
 const Place = ({ place }) => {
   return (
     <div className={styles.root}>
-      <div className={styles.name}>{ <Link to={`/place/${place.id}`}>{place.name}</Link> || 'Where for lunch?' }</div>
+      <div className={styles.name}>{ <Link className={styles.link} to={`/place/${place.id}`}>{place.name}</Link> || 'Where for lunch?' }</div>
       <div className={styles.box}>
         <div>{ place.address }</div>
         <div>{ place.phone }</div>

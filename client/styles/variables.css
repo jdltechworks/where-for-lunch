@@ -10,7 +10,7 @@ $black:                   #0C090A;
 $grey:                    rgba(128, 128, 128, 1);
 $starYellow:              #fde16d;
 $starGrey:                #b1b1b1;
-
+$white:             rgba(255, 255, 255, 1);
 $button-shadow-x:         0;
 $button-shadow-y:         0.03125em;
 $button-shadow-blur:      0.0625em;

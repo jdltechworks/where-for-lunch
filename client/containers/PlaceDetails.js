@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
-import Details from 'components/Details';
+import Place from 'components/Place/Place';
+import Image from 'components/Image';
 
 const { placeById } = placeActions;
 
@@ -21,7 +22,12 @@ class PlaceDetails extends Component {
     const { details } = props;
 
     if (details) {
-      return (<Details info={details} />);
+      return (
+        <Fragment>
+          <Place place={details} />
+          <Image src={details.img} />
+        </Fragment>
+      );
     }
 
     return null;

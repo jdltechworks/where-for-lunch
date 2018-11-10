@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async ({ params }, res) => {
   const data = await fetchPlaceById(params.id);
 
-  res.send(data);
+  res.send(fromSearchPlacesParams(data));
 });
 
 export default router;

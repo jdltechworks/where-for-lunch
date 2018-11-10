@@ -6,6 +6,15 @@
   font-size: 2rem;
   margin-bottom: calc($base-spacing * 2);
 }
+
+.link {
+  color: $white;
+  text-decoration: none;
+  &:hover {
+    opacity: .7;
+  }
+}
+
 .box {
   min-height: 10rem;
   background-color: white;
