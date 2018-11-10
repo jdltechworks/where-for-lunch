@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 052bf39cc13657c5022c643af0f5309ae368bc43
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import placeActions from 'actions/placeActions';
@@ -38,6 +41,7 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetails);
+<<<<<<< HEAD
 =======
 =======
 import { connect } from 'react-redux';
@@ -84,3 +88,5 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetails);
 >>>>>>> Adding place details page plus compoenent test
+=======
+>>>>>>> 052bf39cc13657c5022c643af0f5309ae368bc43

@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import { searchPlaces, fetchPlaceById } from '../services/yelp';
-
 import {
   toSearchPlacesParams,
   fromSearchPlacesParams,
