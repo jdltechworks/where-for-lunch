@@ -26,8 +26,8 @@ class PlaceDetails extends Component {
       return (
         <Fragment>
           <Place place={details} />
-          <Image src={details.img} />
           <Map coordinates={details.coordinates} />
+          <Image src={details.img} />
         </Fragment>
       );
     }
