@@ -42,7 +42,7 @@ describe('conditionReducer', () => {
     );
 
     expect(withCategoryPayload).toEqual({
-      ...state,,
+      ...state,
       categories: ['restaurant']
     });
   });

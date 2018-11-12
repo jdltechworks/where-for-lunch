@@ -10,8 +10,8 @@ import { selectParams } from './selectors';
 
 function* fetchPlace() {
   try {
-    const formValues = yield select(selectParams);
-    const places = yield call(getPlaceIds, formValues);
+    const params = yield select(selectParams);
+    const places = yield call(getPlaceIds, params);
     const randomPlace = getRandom(places);
     yield put(placeActions.setDetails(randomPlace));
   } catch (e) {
