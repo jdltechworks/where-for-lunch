@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import * as types from '../actions/placeActionTypes';
 
-const initialState = {};
+export const initialState = {};
 const placeReducer = handleActions(
   {
     [types.SET_DETAILS](state, action) {
