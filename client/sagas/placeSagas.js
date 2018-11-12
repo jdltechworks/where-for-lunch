@@ -1,4 +1,4 @@
-import { call, takeEvery, takeLatest, put } from 'redux-saga/effects';
+import { call, takeEvery, takeLatest, put, select } from 'redux-saga/effects';
 import { getPlaceIds, getPlaceDetails } from '../services/placeApi';
 import { getRandom } from '../lib/utils';
 import placeActions from '../actions/placeActions';
@@ -7,9 +7,12 @@ import {
   PLACE_BY_ID,
 } from '../actions/placeActionTypes';
 
-function* fetchPlace(action) {
+import { selectParams } from './selectors';
+
+function* fetchPlace() {
   try {
-    const places = yield call(getPlaceIds, action.payload);
+    const params = yield select(selectParams);
+    const places = yield call(getPlaceIds, params);
     const randomPlace = getRandom(places);
     yield put(placeActions.setDetails(randomPlace));
   } catch (e) {

@@ -2,28 +2,6 @@ import placeReducer, { initialState } from 'client/reducers/placeReducer';
 import placeActions from 'client/actions/placeActions';
 
 const place = {
-  cuisines: [
-    {
-      label: 'Barbeque',
-      name: 'bbq',
-    },
-    {
-      label: 'Japanese',
-      name: 'japanese',
-    },
-    {
-      label: 'Korean',
-      name: 'korean',
-    },
-    {
-      label: 'Filipino',
-      name: 'filipino',
-    },
-    {
-      label: 'Burgers',
-      name: 'burgers',
-    },
-  ],
   rating: 4,
   phone: '+639301197713',
   id: 'Hy1JFONhP4dU5s7K0LDy3A',
@@ -40,7 +18,7 @@ const place = {
 
 describe('placeReducer', () => {
   it('should be able to have values once called', () => {
-    const initialReducer = placeReducer(undefined, {})
+    const initialReducer = placeReducer(undefined, {});
     expect(initialReducer).toEqual(initialState);
   });
   it('should render the correct details when action setDetails is used', () => {

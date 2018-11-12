@@ -1,3 +1,10 @@
-export const selectCuisines = ({ place }) => ({ ...place.cuisines });
+export const selectParams = ({ condition }) => {
+  const { radius, longitude, latitude, categories } = condition;
 
-export const selectCondition = ({ condition }) => ({ ...condition });
+  return {
+    radius,
+    longitude,
+    latitude,
+    categories,
+  };
+};

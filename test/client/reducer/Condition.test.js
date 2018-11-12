@@ -5,6 +5,28 @@ import actions from 'client/actions/conditionActions';
 let state = {
   radius: 500,
   categories: [],
+  cuisines: [
+    {
+      label: 'Barbeque',
+      name: 'bbq',
+    },
+    {
+      label: 'Japanese',
+      name: 'japanese',
+    },
+    {
+      label: 'Korean',
+      name: 'korean',
+    },
+    {
+      label: 'Filipino',
+      name: 'filipino',
+    },
+    {
+      label: 'Burgers',
+      name: 'burgers',
+    },
+  ],
 };
 
 
@@ -21,20 +43,23 @@ describe('conditionReducer', () => {
     );
 
     expect(withCategoryPayload).toEqual({
-      radius: 500,
+      ...state,
       categories: ['restaurant']
     });
   });
 
   it('should remove a category if a category is already in the array', () => {
     const hasCategoryState = {
-      radius: 500,
+      ...state,
       categories: ['restaurant']
     };
-    const withDuplicate = conditionReducer(hasCategoryState, actions.setCategory('restaurant'));
+    const withDuplicate = conditionReducer(
+      hasCategoryState,
+      actions.setCategory('restaurant')
+    );
 
     expect(withDuplicate).toEqual({
-      radius: 500,
+      ...state,
       categories: [],
     })
   })
