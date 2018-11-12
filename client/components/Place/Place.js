@@ -10,8 +10,8 @@ const Place = ({ place, withImage }) => {
     <div className={styles.root}>
       <div className={styles.name}>
         <Title url={`/place/${place.id}`}
-          defaultName={!withImage ? 'Where for lunch?' : ''}
-          name={place.name}
+          defaultTitle={!withImage ? 'Where for lunch?' : ''}
+          title={place.name}
           className={styles.link} />
       </div>
       <div className={styles.box}>
