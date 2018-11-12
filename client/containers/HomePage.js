@@ -10,7 +10,7 @@ import { hasLatLong } from 'lib/utils';
 
 class HomePage extends Component {
   handleOnClick = () => {
-    this.props.fetchPlaces(this.props.condition);
+    this.props.fetchPlaces();
   }
 
   handleOnConditionBlur = (value) => {
@@ -27,7 +27,6 @@ class HomePage extends Component {
         <div className="searchWrapper">
           <Condition
             condition={condition}
-            options={place.cuisines}
             textBoxAction={this.handleOnConditionBlur}
             checkBoxAction={setCategory}
           />
