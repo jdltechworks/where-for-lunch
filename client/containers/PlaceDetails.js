@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
@@ -20,15 +20,7 @@ class PlaceDetails extends Component {
   render() {
     const { details } = this.props;
 
-    if (details) {
-      return (
-        <Fragment>
-          <Place withImage={true} place={details} />
-        </Fragment>
-      );
-    }
-
-    return null;
+    return details ? <Place withImage={true} place={details} /> : null;
   }
 }
 
@@ -39,4 +31,7 @@ const mapDispatchToProps = {
   placeById,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetails);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PlaceDetails);
