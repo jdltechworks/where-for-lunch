@@ -5,7 +5,10 @@ export const initialState = {};
 const placeReducer = handleActions(
   {
     [types.SET_DETAILS](state, action) {
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload, isLoading: false };
+    },
+    [types.PLACE_BY_ID]() {
+      return { isLoading: true };
     },
   },
   initialState,

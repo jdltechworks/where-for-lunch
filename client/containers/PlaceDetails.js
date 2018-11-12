@@ -4,6 +4,7 @@ import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
 import Place from 'components/Place/Place';
+import Loader from 'components/Loader/Loader';
 
 const { placeById } = placeActions;
 
@@ -12,19 +13,24 @@ class PlaceDetails extends Component {
     placeById: PropTypes.func,
     match: PropTypes.object,
     details: PropTypes.object,
+    isLoading: PropTypes.bool,
   }
   componentDidMount() {
     const { params } = this.props.match;
     this.props.placeById(params.id);
   }
   render() {
-    const { details } = this.props;
-
-    return details ? <Place withImage={true} place={details} /> : null;
+    const { details, isLoading } = this.props;
+    return !isLoading ? <Place withImage={true} place={details} /> : <Loader />;
   }
 }
 
-const mapStateToProps = ({ place }) => ({ details: { ...place } });
+const mapStateToProps = ({ place }) => {
+  return {
+    isLoading: place.isLoading,
+    details: { ...place },
+  };
+};
 
 
 const mapDispatchToProps = {
