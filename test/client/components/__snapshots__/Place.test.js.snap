@@ -7,11 +7,7 @@ exports[`With Jest snapshot, Place component renders rating section when present
   <div
     className="name"
   >
-    <a
-      className="link"
-      href="/place/undefined"
-      onClick={[Function]}
-    />
+    Where for lunch?
   </div>
   <div
     className="box"

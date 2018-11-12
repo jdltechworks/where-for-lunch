@@ -20,7 +20,7 @@ function* fetchPlace(action) {
 export function* getPlaceById({ payload }) {
   try {
     const place = yield call(getPlaceDetails, payload);
-    yield put(placeActions.setPlace(place));
+    yield put(placeActions.setDetails(place));
   } catch (e) {
     console.error('Error', e);
   }

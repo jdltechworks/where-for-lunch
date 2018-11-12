@@ -4,7 +4,6 @@ import placeActions from 'actions/placeActions';
 import PropTypes from 'prop-types';
 
 import Place from 'components/Place/Place';
-import Image from 'components/Image';
 
 const { placeById } = placeActions;
 
@@ -12,20 +11,19 @@ class PlaceDetails extends Component {
   static propTypes = {
     placeById: PropTypes.func,
     match: PropTypes.object,
+    details: PropTypes.object,
   }
   componentDidMount() {
     const { params } = this.props.match;
     this.props.placeById(params.id);
   }
   render() {
-    const { props } = this;
-    const { details } = props;
+    const { details } = this.props;
 
     if (details) {
       return (
         <Fragment>
-          <Place place={details} />
-          <Image src={details.img} />
+          <Place withImage={true} place={details} />
         </Fragment>
       );
     }
@@ -34,7 +32,7 @@ class PlaceDetails extends Component {
   }
 }
 
-const mapStateToProps = ({ place }) => ({ details: place.details });
+const mapStateToProps = ({ place }) => ({ details: { ...place } });
 
 
 const mapDispatchToProps = {
