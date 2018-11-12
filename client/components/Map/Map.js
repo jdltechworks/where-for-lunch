@@ -5,8 +5,8 @@ import styles from './Map.css';
 class Map extends Component {
   static propTypes = {
     coordinates: PropTypes.shape({
-      longitude: PropTypes.number,
-      latitude: PropTypes.number,
+      longitude: PropTypes.number.isRequired,
+      latitude: PropTypes.number.isRequired,
     }),
   }
   constructor(props) {
@@ -14,8 +14,8 @@ class Map extends Component {
     this.mapTarget = createRef();
   }
   componentDidMount() {
-    if (window.google) {
-      const { coordinates } = this.props;
+    const { coordinates } = this.props;
+    if (window.google && coordinates) {
       const { longitude, latitude } = coordinates;
 
       const shapedCoordinates = { lat: latitude, lng: longitude };
@@ -37,7 +37,7 @@ class Map extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <div ref={this.mapTarget} className={styles.map}/>
+        <div ref={this.mapTarget} className={styles.map} />
       </div>
     );
   }

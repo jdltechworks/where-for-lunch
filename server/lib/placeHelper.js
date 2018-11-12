@@ -27,7 +27,7 @@ export function fromSearchPlacesParams(params) {
     name: params.name,
     img: params.image_url,
     distance: params.distance,
-    coordinates: params.coordinates,
+    coordinates: params.coordinates ? params.coordinates : null,
     address: params.location.display_address.join(', '),
     categories: params.categories ? params.categories.map(c => c.title) : null,
     reviewCount: params.review_count,
