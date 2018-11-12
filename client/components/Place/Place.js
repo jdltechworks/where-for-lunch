@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import Title from '../Title/Title';
 import styles from './Place.css';
 
-const Place = ({ place }) => {
+import Map from '../Map/Map';
+import Image from '../Image/Image';
+
+const Place = ({ place, withImage, withMap }) => {
   return (
     <div className={styles.root}>
-      <div className={styles.name}>{ <Link className={styles.link} to={`/place/${place.id}`}>{place.name}</Link> || 'Where for lunch?' }</div>
+      <div className={styles.name}>
+        <Title url={`/place/${place.id}`}
+          defaultName={!withImage ? 'Where for lunch?' : ''}
+          name={place.name}
+          className={styles.link} />
+      </div>
       <div className={styles.box}>
         <div>{ place.address }</div>
         <div>{ place.phone }</div>
@@ -22,11 +30,16 @@ const Place = ({ place }) => {
         </div>
         }
       </div>
+      { withMap && place.coordinates && <Map coordinates={place.coordinates} /> }
+      { withImage && place.img && <Image src={place.img} /> }
+
     </div>
   );
 };
 
 Place.propTypes = {
+  withImage: PropTypes.bool,
+  withMap: PropTypes.bool,
   place: PropTypes.object,
   router: PropTypes.object,
 };

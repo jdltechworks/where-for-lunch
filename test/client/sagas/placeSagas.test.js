@@ -12,6 +12,6 @@ describe('getPlaceById', () => {
   });
 
   it('should able to receive a server response', () => {
-    expect(gen.next().value).toEqual(put(placeActions.setPlace()));
+    expect(gen.next().value).toEqual(put(placeActions.setDetails()));
   });
 })

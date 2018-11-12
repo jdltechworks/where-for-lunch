@@ -1,23 +1,10 @@
-export const shapeCategories = (defaultValue, params) => {
-  let categories = defaultValue.length > 0 ? defaultValue : ['all'];
-
-  if (params.hasOwnProperty('categories')) {
-    const mergedCategories = [
-      ...categories,
-      ...params.categories
-    ];
-
-    //Remove unique elements
-    categories = [...(new Set(mergedCategories))].join(',');
-    return categories;
-  }
-
-  return categories.join(',');
-};
+export function shapeCategories(params) {
+  return params.categories ? params.categories.join(',') : null;
+}
 
 export function toSearchPlacesParams(params) {
 
-  const categories = shapeCategories(['restaurant'], params);
+  const categories = shapeCategories(params);
 
   const result = {
     term: 'food',

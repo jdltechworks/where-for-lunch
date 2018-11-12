@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import { Link, MemoryRouter } from "react-router-dom";
 
 test('With Enzyme, Place component not render rating section when no rating passed over', () => {
-  const place = { hehe: 'haha' };
+  const place = { hehe: 'haha', id: '11qqaa098123' };
   const wrapper = shallow(
     <MemoryRouter>
       <Place place={place} />
@@ -16,7 +16,7 @@ test('With Enzyme, Place component not render rating section when no rating pass
 });
 
 test('With Jest snapshot, Place component renders rating section when present', () => {
-  const place = { hehe: 'haha', rating: 3.5 };
+  const place = { hehe: 'haha', rating: 3.5, id: '11qqaa098123', };
   const placeComponent = renderer
     .create(
       <MemoryRouter>

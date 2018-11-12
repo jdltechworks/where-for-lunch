@@ -16,18 +16,15 @@ const conditionReducer = handleActions(
     },
     [actionTypes.SET_CATEGORY](state, { payload }) {
       const { categories } = state;
-      //  if playload it is in the array remove
-      if (categories.indexOf(payload, 0) > -1) {
-        return {
-          ...state,
-          categories: [
-            //  prevent state mutation
-            ...categories.splice(payload, categories.indexOf(payload, 0)),
-          ],
-        };
+      // if category does not exist
+      if (categories.indexOf(payload, 0) === -1) {
+        return { ...state, categories: [...categories, payload] };
       }
 
-      return { ...state, categories: [...categories, payload] };
+      return {
+        ...state,
+        categories: [...categories.filter(category => category !== payload)],
+      };
     },
   },
   initialState,
