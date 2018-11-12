@@ -9,7 +9,6 @@ export default class Condition extends PureComponent {
     condition: PropTypes.object,
     textBoxAction: PropTypes.func,
     checkBoxAction: PropTypes.func,
-    options: PropTypes.arrayOf(PropTypes.object),
   };
 
   handleOnBlurAction = (e) => {
@@ -22,14 +21,14 @@ export default class Condition extends PureComponent {
 
   render() {
     const { handleOnBlurAction, handOnChangeAction } = this;
-    const { condition: { radius, categories }, options } = this.props;
+    const { condition: { cuisines, radius, categories } } = this.props;
 
-    const checkboxes = options.map((option, key) => (
+    const checkboxes = cuisines.map((cuisine, key) => (
       <Checkbox key={key}
         handleChange={handOnChangeAction}
-        checked={categories.includes(option.name)}
-        label={option.label}
-        name={option.name} />
+        checked={categories.includes(cuisine.name)}
+        label={cuisine.label}
+        name={cuisine.name} />
     ));
 
     return (

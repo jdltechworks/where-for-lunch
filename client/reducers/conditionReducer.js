@@ -4,6 +4,28 @@ import * as actionTypes from '../actions/conditionActionTypes';
 const initialState = {
   radius: 500,
   categories: [],
+  cuisines: [
+    {
+      label: 'Barbeque',
+      name: 'bbq',
+    },
+    {
+      label: 'Japanese',
+      name: 'japanese',
+    },
+    {
+      label: 'Korean',
+      name: 'korean',
+    },
+    {
+      label: 'Filipino',
+      name: 'filipino',
+    },
+    {
+      label: 'Burgers',
+      name: 'burgers',
+    },
+  ],
 };
 const conditionReducer = handleActions(
   {
