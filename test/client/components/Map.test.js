@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Map from 'client/components/Map';
+import Map from 'client/components/Map/Map';
 
 const coordinates = {
   longitude: 125.61530880000001,
