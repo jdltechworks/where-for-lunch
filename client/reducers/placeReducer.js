@@ -27,10 +27,6 @@ export const initialState = {
 };
 const placeReducer = handleActions(
   {
-    /**
-     * I'm a hesitant to use this not adding a details
-     * property in the state creating one at setplace action type
-     */
     [types.SET_DETAILS](state, action) {
       return { ...state, ...action.payload };
     },
