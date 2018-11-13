@@ -1,10 +1,18 @@
+export function shapeCategories(params) {
+  return params.categories ? params.categories.join(',') : null;
+}
+
 export function toSearchPlacesParams(params) {
+
+  const categories = shapeCategories(params);
+
   const result = {
     term: 'food',
     latitude: params.latitude,
     longitude: params.longitude,
     radius: params.radius,
     limit: 50,
+    categories,
     open_now: true,
   };
   return result;

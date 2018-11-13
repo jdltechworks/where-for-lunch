@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Button from 'components/Button';
 import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
@@ -11,22 +10,26 @@ import { hasLatLong } from 'lib/utils';
 
 class HomePage extends Component {
   handleOnClick = () => {
-    this.props.fetchPlaces(this.props.condition);
+    this.props.fetchPlaces();
   }
 
-  handleOnConditionChange = (value) => {
+  handleOnConditionBlur = (value) => {
     this.props.setRadius(value);
   }
 
   render() {
-    const { condition, place } = this.props;
+    const { condition, place, setCategory } = this.props;
     const searchDisabled = hasLatLong(condition);
 
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Condition condition={condition} action={this.handleOnConditionChange}/>
+          <Condition
+            condition={condition}
+            textBoxAction={this.handleOnConditionBlur}
+            checkBoxAction={setCategory}
+          />
           <Button disabled={searchDisabled} onClick={this.handleOnClick} theme="homepageClick" />
         </div>
       </div>
@@ -39,17 +42,18 @@ const mapStateToProps = state => ({
   place: state.place,
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    fetchPlaces: placeActions.fetchPlaces,
-    setRadius: conditionActions.setRadius,
-  }, dispatch);
+const mapDispatchToProps = {
+  fetchPlaces: placeActions.fetchPlaces,
+  setCategory: conditionActions.setCategory,
+  setRadius: conditionActions.setRadius,
+};
 
 HomePage.propTypes = {
   condition: PropTypes.object,
   place: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
+  setCategory: PropTypes.func,
 };
 export default connect(
   mapStateToProps,
