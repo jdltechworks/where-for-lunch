@@ -1,0 +1,10 @@
+@import 'styles/variables.css';
+
+.image {
+  width: 100%;
+  display: block;
+  &_container {
+    padding: 2%;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  }
+}

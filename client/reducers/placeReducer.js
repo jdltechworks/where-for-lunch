@@ -1,11 +1,14 @@
 import { handleActions } from 'redux-actions';
-import * as actionTypes from 'actions/placeActionTypes';
+import * as types from '../actions/placeActionTypes';
 
-const initialState = {};
+export const initialState = {};
 const placeReducer = handleActions(
   {
-    [actionTypes.SET_DETAILS](state, action) {
-      return { ...state, ...action.payload };
+    [types.SET_DETAILS](state, action) {
+      return { ...state, ...action.payload, isLoading: false };
+    },
+    [types.PLACE_BY_ID]() {
+      return { isLoading: true };
     },
   },
   initialState,

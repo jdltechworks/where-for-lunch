@@ -1,6 +1,7 @@
 import conditionReducer from 'client/reducers/conditionReducer';
 import * as types from 'client/actions/conditionActionTypes';
 import actions from 'client/actions/conditionActions';
+
 let state = {
   radius: 500,
   categories: [],

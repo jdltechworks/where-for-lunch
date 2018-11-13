@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from '../Title/Title';
+
+import Image from '../Image/Image';
 import styles from './Place.css';
 
-const Place = ({ place }) => {
+const Place = ({ place, withImage }) => {
   return (
     <div className={styles.root}>
-      <div className={styles.name}>{ place.name || 'Where for lunch?' }</div>
+      <div className={styles.name}>
+        <Title url={`/place/${place.id}`}
+          defaultTitle={!withImage ? 'Where for lunch?' : ''}
+          title={place.name}
+          className={styles.link} />
+      </div>
       <div className={styles.box}>
         <div>{ place.address }</div>
         <div>{ place.phone }</div>
@@ -21,12 +29,16 @@ const Place = ({ place }) => {
         </div>
         }
       </div>
+      { withImage && place.img && <Image src={place.img} /> }
+
     </div>
   );
 };
 
 Place.propTypes = {
+  withImage: PropTypes.bool,
   place: PropTypes.object,
+  router: PropTypes.object,
 };
 
 export default Place;
