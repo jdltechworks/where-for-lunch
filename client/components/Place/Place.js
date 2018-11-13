@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Title from '../Title/Title';
-
-import Image from '../Image/Image';
 import styles from './Place.css';
 
-const Place = ({ place, withImage }) => {
+import Map from '../Map/Map';
+import Image from '../Image/Image';
+
+const Place = ({ place, withImage, withMap }) => {
   return (
     <div className={styles.root}>
       <div className={styles.name}>
@@ -29,6 +30,7 @@ const Place = ({ place, withImage }) => {
         </div>
         }
       </div>
+      { withMap && place.coordinates && <Map coordinates={place.coordinates} /> }
       { withImage && place.img && <Image src={place.img} /> }
 
     </div>
@@ -37,6 +39,7 @@ const Place = ({ place, withImage }) => {
 
 Place.propTypes = {
   withImage: PropTypes.bool,
+  withMap: PropTypes.bool,
   place: PropTypes.object,
   router: PropTypes.object,
 };

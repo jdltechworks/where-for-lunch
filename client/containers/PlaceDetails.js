@@ -21,7 +21,7 @@ class PlaceDetails extends Component {
   }
   render() {
     const { details, isLoading } = this.props;
-    return !isLoading ? <Place withImage={true} place={details} /> : <Loader />;
+    return !isLoading ? <Place withImage={true} withMap={true} place={details} /> : <Loader />;
   }
 }
 
