@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Button from 'components/Button/Button';
+import Button from 'components/Button';
 import placeActions from 'actions/placeActions';
 import conditionActions from 'actions/conditionActions';
 import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
+import { hasLatLong } from 'lib/utils';
 
 class HomePage extends Component {
   handleOnClick = () => {
@@ -16,14 +17,17 @@ class HomePage extends Component {
   handleOnConditionChange = (value) => {
     this.props.setRadius(value);
   }
+
   render() {
     const { condition, place } = this.props;
+    const searchDisabled = hasLatLong(condition);
+
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
           <Condition condition={condition} action={this.handleOnConditionChange}/>
-          <Button onClick={this.handleOnClick} theme="homepageClick" />
+          <Button disabled={searchDisabled} onClick={this.handleOnClick} theme="homepageClick" />
         </div>
       </div>
     );

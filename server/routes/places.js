@@ -1,10 +1,11 @@
 import { Router } from 'express';
 
-import { searchPlaces } from '../services/yelp';
+import { searchPlaces } from 'services/yelp';
+
 import {
   toSearchPlacesParams,
   fromSearchPlacesParams,
-} from '../lib/placeHelper';
+} from 'lib/placeHelper';
 
 const router = Router();
 router.get('/', async (req, res) => {

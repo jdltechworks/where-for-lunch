@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "env BABEL_ENV=server babel-watch server/server.js",
+    "start": "env NODE_PATH=./server BABEL_ENV=server babel-watch server/server.js",
     "test": "jest test --config test/jestSetup.js",
     "test-tdd": "jest test --config test/jestSetup.js --watch",
     "jest-update": "jest --updateSnapshot --config test/jestSetup.js",
@@ -66,6 +66,6 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.10"
   }
 }
